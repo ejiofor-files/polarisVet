@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 
 const Features = () => {
   return (
-    <div className="mx-auto container overflow-hidden p-10 md:px-20 lg:px-24 max-w-full bg-green-100 ">
+    <div
+      className="mx-auto container overflow-hidden p-10 md:px-20 lg:px-24 max-w-full bg-green-100 "
+      id="Features"
+    >
       <div className="flex flex-col md:flex-row items-center  w-full justify-between gap-8 md:items-start md:gap-20">
         <div className=" w-full">
           <h5>Our Core features</h5>

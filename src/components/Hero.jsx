@@ -18,7 +18,7 @@ const Hero = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <p className="flex gap-2 items-center text-2xl font-normal">
+        <p className="flex gap-2 items-center text-1xl sm:text-2xl font-normal">
           Skyrocket your website <img src={assets.rocket} alt="rocket" />
         </p>
         <h2 className="text-black font-bold text-4xl md:text-[82px] inline-block sm:text-5xl py-4 leading-normal max-w-2xl">
@@ -28,7 +28,7 @@ const Hero = () => {
           Unleash the full potential of your website and elevate its online
           presence with our comprehensive SEO solutions.
         </p>
-        <div className=" flex justify-start bg-gray-200 rounded-md my-4 shadow-xl">
+        <div className=" flex justify-start bg-gray-200 rounded-md my-4">
           <input
             type="text"
             placeholder="Enter your Website URL"

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="overflow-hidden max-w-full py-6">
+    <div className="overflow-hidden max-w-full py-6" id="About">
       <div className="flex flex-col md:flex-row  justify-between gap-8">
         <img
           src={assets.about}

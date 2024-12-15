@@ -14,12 +14,15 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="container overflow-hidden max-w-full py-6 px-6">
+    <div
+      className="container overflow-hidden max-w-full py-14 px-6"
+      id="Testimonials"
+    >
       <div className="flex justify-center items-center flex-col text-center">
         <h5 className="uppercase text-green-800 text-lg font-semibold">
           Our client's testimonials
         </h5>
-        <h2 className="capitalize font-bold text-3xl sm:text-4xl mb-3">
+        <h2 className="capitalize font-bold text-4xl sm:text-5xl mb-3">
           Client stories of AgenShark
         </h2>
         <p className="text-gray-700 text-lg">

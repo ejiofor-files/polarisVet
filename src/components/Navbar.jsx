@@ -2,6 +2,12 @@ import React, { useEffect, useState } from "react";
 import { assets } from "../assets";
 
 const Navbar = () => {
+  const [sticky, setSticky] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY >= 50 ? setSticky(true) : setSticky(false);
+    });
+  }, []);
   const [showMobile, setShowMobile] = useState(false);
 
   useEffect(() => {
@@ -16,8 +22,10 @@ const Navbar = () => {
   }, [showMobile]);
 
   return (
-    <div className="absolute top-0 left-0 w-full z-10">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-white rounded-md">
+    <div className=" fixed top-0 left-0 w-full z-10">
+      <div
+        className={`container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32  bg-white rounded-md ${sticky}`}
+      >
         <img src={assets.logoBlack} alt="logo" />
         <ul className="hidden md:flex gap-7 text-black font-semibold">
           <a href="#Header" className="cursor-pointer hover:text-gray-400">
@@ -34,9 +42,6 @@ const Navbar = () => {
             className="cursor-pointer hover:text-gray-400"
           >
             Testimonials
-          </a>
-          <a href="#Contact" className="cursor-pointer hover:text-gray-400">
-            Contact
           </a>
         </ul>
         <button className="hidden md:block bg-green-900 text-white px-8 font-semibold rounded-full py-2">
