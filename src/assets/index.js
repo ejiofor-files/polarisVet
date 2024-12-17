@@ -5,8 +5,14 @@ import awardIcon2 from "./award-icon2.png";
 import awardIcon3 from "./award-icon3.png";
 import awardWinning from "./award-wining.png";
 import hero from "./hero.png";
+import whiteArrow from "./white-arrow.png";
+import locationIcon from "./location-icon.png";
+import mailIcon from "./mail-icon.png";
+import msg from "./msg-icon.png";
+import phone from "./phone-icon.png";
 import hamburger from "./hamburger.svg";
 import nextIcon from "./next-icon.png";
+import roadmapImg from "./roadmap-img.jpg";
 import backIcon from "./back-icon.png";
 import close from "./cross-icon.svg";
 import newsletter from "./hero-image.png";
@@ -29,10 +35,10 @@ import user3 from "./user-3.png";
 import user4 from "./user-4.png";
 
 import rocket from "./rocket.png";
+import ratingImg from "./rating.png";
 import bannerKit1 from "./banner-three-kit1.png";
 import bannerKit2 from "./banner-three-kit2.png";
 import bannerKit3 from "./banner-three-kit3.png";
-import star from "./star.svg";
 import earning from "./earning.png";
 import target from "./target.png";
 import traffic from "./traffic.png";
@@ -47,6 +53,7 @@ import aboutKeyword from "./about-three-kit.png";
 export const assets = {
   agenLogo,
   about,
+  roadmapImg,
   awardIcon1,
   awardIcon2,
   awardIcon3,
@@ -61,6 +68,11 @@ export const assets = {
   brandImage6,
   arrowUp,
   arrowDown,
+  whiteArrow,
+  phone,
+  mailIcon,
+  msg,
+  locationIcon,
   close,
   csImg2,
   csImg3,
@@ -80,10 +92,9 @@ export const assets = {
   user2,
   user3,
   user4,
-
+  ratingImg,
   backIcon,
   nextIcon,
-  star,
 };
 
 export const brandImages = [
@@ -156,28 +167,28 @@ export const roadMap = [
 
 export const testimonialData = [
   {
-    rating: star,
+    rating: ratingImg,
     authorImg: user1,
     title: "Mike Ronad ",
     position: "Marketing Director",
     text: '"As a marketing professional, I appreciate the data driven approach this agency brings to the table. Transparent reporting, effective strategies."',
   },
   {
-    rating: star,
+    rating: ratingImg,
     authorImg: user2,
-    title: "Alicia Sierra",
+    title: "Johnson Scott",
     position: "Startup Founder",
     text: '"In the early stages of our startup, visibility was key. This SEO agency not only delivered on that front but also provided strategic guidance."',
   },
   {
-    rating: star,
+    rating: ratingImg,
     authorImg: user3,
-    title: "Mike Ronad ",
+    title: "Mike Ronald ",
     position: "Marketing Director",
     text: '"As a marketing professional, I appreciate the data driven approach this agency brings to the table. Transparent reporting, effective strategies."',
   },
   {
-    rating: star,
+    rating: ratingImg,
     authorImg: user4,
     title: "Alex Gwen",
     position: "Developer",

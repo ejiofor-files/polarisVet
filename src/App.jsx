@@ -8,6 +8,7 @@ import Brands from "./components/Brands";
 import Testimonials from "./components/Testimonials";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer";
+import Contact from "./components/Contact";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       <RoadMap />
       <Testimonials />
       <Faq />
+      <Contact />
       <Footer />
     </div>
   );

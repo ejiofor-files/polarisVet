@@ -6,11 +6,11 @@ const Faq = () => {
   return (
     <div className="container mx-auto overflow-hidden w-full py-10 px-6">
       <div className="flex items-center justify-between gap-6 flex-col md:flex-row ">
-        <div className="flex flex-col ">
+        <div className="flex flex-col">
           <h4 className="uppercase text-green-700 text-lg font-semibold mb-4">
             FAQ’s Demystified
           </h4>
-          <h2 className="text-3xl font-semibold leading-normal sm:text-4xl mb-6">
+          <h2 className="text-4xl font-semibold leading-normal sm:text-5xl mb-6">
             Frequently Asked Questions Answered
           </h2>
           <p>
@@ -19,13 +19,13 @@ const Faq = () => {
           </p>
           <p className="pt-3">
             Have any other questions?{" "}
-            <a href="#" className="cursor-pointer font-bold">
+            <a href="#Contact" className="cursor-pointer font-bold">
               Contact Us
             </a>
           </p>
         </div>
         <motion.div
-          className=" pt-16 "
+          className=" pt-16 w-5/6 "
           initial={{ opacity: 0, y: 100 }}
           transition={{ duration: 1.5 }}
           whileInView={{ opacity: 1, y: 0 }}

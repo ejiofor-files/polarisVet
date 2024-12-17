@@ -28,16 +28,6 @@ const Hero = () => {
           Unleash the full potential of your website and elevate its online
           presence with our comprehensive SEO solutions.
         </p>
-        <div className=" flex justify-start bg-gray-200 rounded-md my-4">
-          <input
-            type="text"
-            placeholder="Enter your Website URL"
-            className=" text- px-10 rounded-md py-3 flex-1 outline-none"
-          />
-          <button className="bg-gradient-to-r from-pink-400 to-gray-100 text-black font-semibold rounded-lg px-2 py-3 sm:px-10">
-            Get Result
-          </button>
-        </div>
       </motion.div>
       <motion.div
         className="hidden md:block relative"
@@ -49,7 +39,7 @@ const Hero = () => {
         <div className="flex pt-10 ">
           {/* <img width={20} src={assets.bannerKit1} alt="/" /> */}
           <img
-            className="w-[700px] object-contain"
+            className="w-[800px] h-[450px] object-fit"
             src={assets.hero}
             alt="banner"
           />

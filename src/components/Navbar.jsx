@@ -24,7 +24,9 @@ const Navbar = () => {
   return (
     <div className=" fixed top-0 left-0 w-full z-10">
       <div
-        className={`container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32  bg-white rounded-md ${sticky}`}
+        className={`container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32  bg-white rounded-md ${
+          sticky ? "bg-opacity-70 backdrop-blur-md" : ""
+        }`}
       >
         <img src={assets.logoBlack} alt="logo" />
         <ul className="hidden md:flex gap-7 text-black font-semibold">
@@ -45,7 +47,7 @@ const Navbar = () => {
           </a>
         </ul>
         <button className="hidden md:block bg-green-900 text-white px-8 font-semibold rounded-full py-2">
-          Contact Us
+          <a href="#Contact">Contact Us</a>
         </button>
         <img
           src={assets.hamburger}

@@ -1,5 +1,5 @@
 import React from "react";
-import { roadMap } from "../assets";
+import { assets, roadMap } from "../assets";
 import { motion } from "framer-motion";
 
 const RoadMap = () => {
@@ -14,27 +14,53 @@ const RoadMap = () => {
             Our Proven Work Process
           </h2>
         </div>
-        <p className="max-w-lg sm:my-10 text-white">
+        <p className="max-w-lg sm:my-6 text-white">
           Our Proven Work Process blends experience, precision, and innovation
           for consistently outstanding results.
         </p>
       </div>
       <motion.div
-        className="flex justify-between items-start text-left flex-col md:flex-row md:items-center md:text-center gap-6 mt-10"
+        className="mt-4 flex items-center justify-between flex-col gap-4 md:flex-row"
         initial={{ opacity: 0, y: 100 }}
         transition={{ duration: 1.5 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        {roadMap.map((road, index) => (
-          <div key={index}>
-            <label className="text-3xl py-2 px-5 bg-orange-100 rounded-[50%] ">
-              {road.id}
-            </label>
-            <h3 className="text-3xl font-semibold mt-8 mb-4">{road.title}</h3>
-            <p className="text-white leading-normal">{road.text}</p>
-          </div>
-        ))}
+        <div className="w-[450px] md:px-4 px-14">
+          <ul>
+            {roadMap.map((item, index) => (
+              <li
+                key={index}
+                className="relative flex items-baseline gap-6 pb-5"
+              >
+                <div className="before:absolute before:left-[5.5px] before:h-full before:w-[1px] before:bg-gray-400">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    className="bi bi-circle-fill fill-gray-400"
+                    viewBox="0 0 16 16"
+                  >
+                    <circle cx="8" cy="8" r="8" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-2xl text-gray-300 font-bold">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-white text-md">{item.text}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <img
+            src={assets.roadmapImg}
+            alt=""
+            className="object-fill w-[650px] rounded-xl  md:block"
+          />
+        </div>
       </motion.div>
     </div>
   );
