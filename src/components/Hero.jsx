@@ -1,51 +1,71 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Brands from "./Brands";
 import { assets } from "../assets";
-import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <div
-      className="container min-h-screen  bg-cover bg-center flex items-center pt-24 max-w-full overflow-hidden bg-gradient-to-r from-pink-300 to-white"
+      className="relative bg-black flex flex-col justify-center items-center h-[calc(100vh+120px)]"
       id="Header"
     >
-      <Navbar />
+      
+      <div className="absolute inset-0">
+        <img
+          className="object-cover w-full h-full opacity-50"
+          src={assets.hero}
+          alt="Veterinary care background"
+        />
+      </div>
 
-      <motion.div
-        className="container overflow-x-hidden px-6 md:px-20 mt-0 lg:px-32 "
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <p className="flex gap-2 items-center text-1xl sm:text-2xl font-normal">
-          Skyrocket your website <img src={assets.rocket} alt="rocket" />
-        </p>
-        <h2 className="text-black font-bold text-4xl md:text-[82px] inline-block sm:text-5xl py-4 leading-normal max-w-2xl">
-          Find the best solution together.
-        </h2>
-        <p className="max-w-2xl">
-          Unleash the full potential of your website and elevate its online
-          presence with our comprehensive SEO solutions.
-        </p>
-      </motion.div>
-      <motion.div
-        className="hidden md:block relative"
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-      >
-        <div className="flex pt-10 ">
-          {/* <img width={20} src={assets.bannerKit1} alt="/" /> */}
-          <img
-            className="w-[800px] h-[450px] object-fit"
-            src={assets.hero}
-            alt="banner"
-          />
-          {/* <img width={20} src={assets.bannerKit2} alt="/" /> */}
+      <div className="relative h-screen flex flex-col justify-center items-center">
+        <div className="px-6 mx-auto sm:px-8 lg:px-12 max-w-7xl">
+          <div className="max-w-xl mx-auto text-center">
+            <h1 className="tracking-tighter text-white">
+              <span className="font-sans font-normal text-7xl">Caring for</span>
+              <br />
+              <span className="font-serif italic font-normal text-8xl">
+                Your Pets
+              </span>
+            </h1>
+            <p className="mt-5 font-sans text-base font-normal text-white text-opacity-70">
+              Dedicated to ensuring the health, happiness, and well-being of your furry friends.  
+              Our team is here to provide the best veterinary care they deserve.
+            </p>
+            <div className="flex items-center justify-center mt-8 space-x-3 sm:space-x-4">
+              <a
+                href="#"
+                title=""
+                className="
+                  inline-flex
+                  items-center
+                  justify-center
+                  px-5
+                  py-2
+                  font-sans
+                  text-base
+                  font-semibold
+                  leading-6
+                  transition-all
+                  duration-200
+                  border-2 border-transparent
+                  rounded-full
+                  sm:leading-8
+                  bg-white
+                  sm:text-lg
+                  text-black
+                  hover:bg-opacity-90
+                  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-secondary
+                "
+                role="button"
+              >
+                Book an Appointment
+              </a>
+            </div>
+          </div>
         </div>
-      </motion.div>
+      </div>
+
+      <Brands />
     </div>
   );
 };

@@ -29,7 +29,7 @@ const Contact = () => {
 
   return (
     <div
-      className="container mx-auto overflow-hidden w-full py-10 px-6 flex justify-center flex-col md:flex-row items-start md:items-center"
+      className="w-full max-w-[85rem] mx-auto overflow-hidden py-10 px-6 lg:px-8 flex justify-center flex-col md:flex-row items-start md:items-center"
       id="Contact"
     >
       <div className="text-[#676767] basis-[48%] ">
@@ -42,7 +42,7 @@ const Contact = () => {
             alt="message"
           />
         </h3>
-        <p className="max-w-[450px] ">
+        <p className=" ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
           sequi pariatur aspernatur, architecto ad hic aperiam, mollitia ex
           laborum impedit quod iste suscipit nisi qui iusto. Exercitationem
@@ -76,7 +76,7 @@ const Contact = () => {
           </li>
         </ul>
       </div>
-      <div className=" w-10/12 md:w-1/2">
+      <div className=" w-full md:w-1/2">
         <form onSubmit={onSubmit}>
           <label>Your Name</label>
           <input

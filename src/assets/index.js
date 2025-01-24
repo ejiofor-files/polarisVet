@@ -1,10 +1,11 @@
-import agenLogo from "./agen-logo.png";
+import polarisLogo from "./logo.svg";
 import about from "./about-image.png";
 import awardIcon1 from "./award-icon1.png";
 import awardIcon2 from "./award-icon2.png";
 import awardIcon3 from "./award-icon3.png";
 import awardWinning from "./award-wining.png";
-import hero from "./hero.png";
+import hero from "./hero.jpg";
+import hero1 from "./hero-1.jpg";
 import whiteArrow from "./white-arrow.png";
 import locationIcon from "./location-icon.png";
 import mailIcon from "./mail-icon.png";
@@ -24,10 +25,16 @@ import brandImage3 from "./brand-image3.png";
 import brandImage4 from "./brand-image4.png";
 import brandImage5 from "./brand-image5.png";
 import brandImage6 from "./brand-image6.png";
+import serviceImage1 from "./service-image1.jpg";
+import serviceImage2 from "./service-image2.jpg";
+import serviceImage3 from "./service-image3.jpg";
+import aboutImage1 from "./about-image1.jpg";
+import aboutImage2 from "./about-image2.jpg";
+import aboutImage3 from "./about-image3.jpg";
 import csImg2 from "./cs-img-2.png";
 import csImg3 from "./cs-img-3.png";
 import csImg4 from "./cs-img-4.png";
-import logoBlack from "./logo-black.png";
+import logoWhite from "./logo-white.svg";
 import storyImage1 from "./story-image1.png";
 import user1 from "./user-1.png";
 import user2 from "./user-2.png";
@@ -51,7 +58,7 @@ import arrowDown from "./down-arrow.png";
 import aboutKeyword from "./about-three-kit.png";
 
 export const assets = {
-  agenLogo,
+  polarisLogo,
   about,
   roadmapImg,
   awardIcon1,
@@ -66,6 +73,12 @@ export const assets = {
   brandImage4,
   brandImage5,
   brandImage6,
+  serviceImage1,
+  serviceImage2,
+  serviceImage3,
+  aboutImage1,
+  aboutImage2,
+  aboutImage3,
   arrowUp,
   arrowDown,
   whiteArrow,
@@ -79,12 +92,13 @@ export const assets = {
   ranking,
   csImg4,
   hero,
+  hero1,
   newsletter,
   bannerKit1,
   bannerKit2,
   bannerKit3,
   hamburger,
-  logoBlack,
+  logoWhite,
   storyImage1,
   aboutKeyword,
   rocket,
@@ -167,31 +181,18 @@ export const roadMap = [
 
 export const testimonialData = [
   {
-    rating: ratingImg,
-    authorImg: user1,
-    title: "Mike Ronad ",
-    position: "Marketing Director",
-    text: '"As a marketing professional, I appreciate the data driven approach this agency brings to the table. Transparent reporting, effective strategies."',
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae ligula tincidunt, venenatis augue sed, volutpat est.",
+    name: " ",
+    role: "Pet Owner | Happy Client",
   },
   {
-    rating: ratingImg,
-    authorImg: user2,
-    title: "Johnson Scott",
-    position: "Startup Founder",
-    text: '"In the early stages of our startup, visibility was key. This SEO agency not only delivered on that front but also provided strategic guidance."',
+    text: "Quisque efficitur dolor vel ipsum aliquet, at feugiat urna accumsan. Mauris vehicula ante non nulla consectetur lacinia.",
+    name: " ",
+    role: "Pet Parent | Loyal Visitor",
   },
   {
-    rating: ratingImg,
-    authorImg: user3,
-    title: "Mike Ronald ",
-    position: "Marketing Director",
-    text: '"As a marketing professional, I appreciate the data driven approach this agency brings to the table. Transparent reporting, effective strategies."',
-  },
-  {
-    rating: ratingImg,
-    authorImg: user4,
-    title: "Alex Gwen",
-    position: "Developer",
-    text: '"In the early stages of our startup, visibility was key. This SEO agency not only delivered on that front but also provided strategic guidance."',
+    text: "Ut volutpat ligula ac elit vestibulum, sed bibendum erat commodo. Aenean consequat velit et ipsum molestie aliquam.",
+    name: " ",
+    role: "Pet Owner | Frequent Client",
   },
 ];
