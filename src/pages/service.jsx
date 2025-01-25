@@ -1,11 +1,212 @@
-import React from 'react'
+import React from "react";
+import { assets } from "../assets";
+import { services } from "../assets";
+import { createPortal } from 'react-dom';
 
 const Service = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const [modalIndex, setModalIndex] = React.useState(null);
+  console.log(document.getElementById('modal-root'));
 
-export default Service
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "70571834-6a2c-43c4-9401-3e3c5cf64e71");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
+  return (
+    <section className="overflow-hidden">
+      <div className="flex bg-yellow-50 flex-col lg:flex-row lg:items-stretch lg:min-h-[800px]">
+        <div className="relative flex items-center justify-center w-full lg:order-2 lg:w-7/12">
+          <div className="absolute bottom-0 right-0 hidden lg:block">
+            <img
+              className="object-contain w-auto h-48"
+              src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/3/curved-lines.png"
+              alt=""
+            />
+          </div>
+
+          <div className="relative px-4 pt-24 pb-16 text-center sm:px-6 md:px-24 2xl:px-32 lg:py-24 lg:text-left">
+            <h1 className="text-4xl font-bold text-black sm:text-6xl xl:text-8xl">
+              See All
+              <br />
+              Our Services.
+            </h1>
+            <p className="mt-8 text-xl text-black">
+              We provide a variety of Professional vetinanary services to your pets.
+            </p>
+
+
+            <p className="mt-5 text-base text-black">
+              Book an <button onClick={() => setModalIndex(0)} className="text-green-700 font-bold">Appointment</button> now!
+            </p>
+          </div>
+        </div>
+
+        <div className="relative w-full overflow-hidden lg:order-1 h-96 lg:h-auto lg:w-5/12">
+          <div className="absolute inset-0">
+            <img
+              className="object-contain w-full h-full scale-150"
+              src={assets.hero2}
+              alt=""
+            />
+          </div>
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+
+          <div className="absolute bottom-0 left-0">
+            <div className="p-4 sm:p-6 lg:p-8">
+              <div className="flex items-center">
+                <svg
+                  className="w-10 h-10 text-green-900"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                <h2 className="font-bold text-white text-7xl ml-2.5">1000+</h2>
+              </div>
+              <p className="max-w-xs mt-1.5 text-xl text-white">
+                Pets attended to.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 className="text-center bg-green-50 pt-12 text-4xl font-bold text-black">
+        Our Services
+      </h2>
+      <div className="grid py-12 px-6 bg-green-50 lg:px-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 max-w-[85rem] mx-auto">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className="rounded-xl overflow-hidden flex flex-col max-w-xl mx-auto"
+          >
+            <img
+              className="w-full rounded-xl h-[250px] object-cover"
+              src={service.img}
+            />
+
+            <div className="relative rounded-xl  -mt-16 px-10 py-5  bg-white m-10">
+              <button className="font-semibold text-lg h-[50px] hover:text-green-900 transition duration-500 ease-in-out inline-block mb-2">
+                {service.title}
+              </button>
+              <p className="text-gray-500 text-sm h-[50px] md:h-[30px]">
+                {service.description}
+              </p>
+              <p className="mt-5 text-gray-600 text-xs">
+                <div className="bg-white h-[50px] flex items-start justify-start">
+                  <>
+                  <button onClick={() => setModalIndex(index)} className="relative inline-flex items-center px-12 py-3 overflow-hidden font-medium text-green-900 border-2 border-green-900 rounded-full hover:text-white group hover:bg-gray-50">
+                    <span className="absolute left-0 block w-full h-0 transition-all bg-green-900 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                    <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        ></path>
+                      </svg>
+                    </span>
+                    <span className="relative">Book Appointment</span>
+                  </button>
+                  {index === modalIndex && createPortal(
+                      <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div className="bg-white p-6 rounded-lg w-full max-w-md">
+                          <div className="w-full flex justify-end"><button
+                            className="mt-4 text-red-500 hover:underline"
+                            onClick={() => setModalIndex(null)}
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><path fill="currentColor" d="M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2m0 26C9.4 28 4 22.6 4 16S9.4 4 16 4s12 5.4 12 12s-5.4 12-12 12"/><path fill="currentColor" d="M21.4 23L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z"/></svg>
+                          </button></div>
+                          <h2 className="text-2xl mb-4">Book an Appointment</h2>
+                          <form onSubmit={onSubmit}>
+                            <label className="block mb-2">Your Name</label>
+                            <input
+                              type="text"
+                              name="name"
+                              placeholder="Enter your name"
+                              required
+                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                            />
+                            
+                            <label className="block mb-2 mt-4">Phone Number</label>
+                            <input
+                              type="tel"
+                              name="phone"
+                              placeholder="Enter your phone number"
+                              required
+                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                            />
+                            
+                            <label className="block mb-2 mt-4">Email</label>
+                            <input
+                              type="email"
+                              name="email"
+                              placeholder="Enter your email address"
+                              required
+                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                            />
+                            
+                            <label className="block mb-2 mt-4">Appointment Date</label>
+                            <input
+                              type="date"
+                              name="date"
+                              required
+                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                            />
+                            
+                            <button
+                              type="submit"
+                              className="bg-[#000f38] flex items-center justify-center text-white rounded-xl mt-6 font-semibold text-lg p-4 w-full"
+                            >
+                              Submit
+                            </button>
+                          </form>
+                          
+                        </div>
+                      </div>,
+                      document.getElementById('modal-root')
+                    )}
+                    </>
+                </div>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default Service;

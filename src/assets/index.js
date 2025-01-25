@@ -1,11 +1,9 @@
 import polarisLogo from "./logo.svg";
-import about from "./about-image.png";
-import awardIcon1 from "./award-icon1.png";
-import awardIcon2 from "./award-icon2.png";
-import awardIcon3 from "./award-icon3.png";
-import awardWinning from "./award-wining.png";
 import hero from "./hero.jpg";
 import hero1 from "./hero-1.jpg";
+import hero2 from "./hero-2.jpg";
+import hero3 from "./hero-3.jpg";
+
 import whiteArrow from "./white-arrow.png";
 import locationIcon from "./location-icon.png";
 import mailIcon from "./mail-icon.png";
@@ -13,12 +11,8 @@ import msg from "./msg-icon.png";
 import phone from "./phone-icon.png";
 import hamburger from "./hamburger.svg";
 import nextIcon from "./next-icon.png";
-import roadmapImg from "./roadmap-img.jpg";
 import backIcon from "./back-icon.png";
 import close from "./cross-icon.svg";
-import newsletter from "./hero-image.png";
-import blog4 from "./blog-4.jpg";
-import blog6 from "./blog-6.jpg";
 import brandImage1 from "./brand-image1.png";
 import brandImage2 from "./brand-image2.png";
 import brandImage3 from "./brand-image3.png";
@@ -28,51 +22,25 @@ import brandImage6 from "./brand-image6.png";
 import serviceImage1 from "./service-image1.jpg";
 import serviceImage2 from "./service-image2.jpg";
 import serviceImage3 from "./service-image3.jpg";
+import serviceImage4 from "./service-image4.jpg";
+import serviceImage5 from "./service-image5.jpg";
+
+
 import aboutImage1 from "./about-image1.jpg";
 import aboutImage2 from "./about-image2.jpg";
 import aboutImage3 from "./about-image3.jpg";
-import csImg2 from "./cs-img-2.png";
-import csImg3 from "./cs-img-3.png";
-import csImg4 from "./cs-img-4.png";
+
 import logoWhite from "./logo-white.svg";
-import storyImage1 from "./story-image1.png";
-import user1 from "./user-1.png";
-import user2 from "./user-2.png";
-import user3 from "./user-3.png";
-import user4 from "./user-4.png";
+
 
 import rocket from "./rocket.png";
-import ratingImg from "./rating.png";
-import bannerKit1 from "./banner-three-kit1.png";
-import bannerKit2 from "./banner-three-kit2.png";
-import bannerKit3 from "./banner-three-kit3.png";
-import earning from "./earning.png";
-import target from "./target.png";
-import traffic from "./traffic.png";
-import customer from "./customer-service.png";
-import work from "./work-schedule.png";
-import manage from "./management.png";
-import ranking from "./ranking.png";
+
 import arrowUp from "./arrow-up.png";
 import arrowDown from "./down-arrow.png";
-import aboutKeyword from "./about-three-kit.png";
+
 
 export const assets = {
   polarisLogo,
-  about,
-  roadmapImg,
-  awardIcon1,
-  awardIcon2,
-  awardIcon3,
-  awardWinning,
-  blog4,
-  blog6,
-  brandImage1,
-  brandImage2,
-  brandImage3,
-  brandImage4,
-  brandImage5,
-  brandImage6,
   serviceImage1,
   serviceImage2,
   serviceImage3,
@@ -87,26 +55,13 @@ export const assets = {
   msg,
   locationIcon,
   close,
-  csImg2,
-  csImg3,
-  ranking,
-  csImg4,
   hero,
   hero1,
-  newsletter,
-  bannerKit1,
-  bannerKit2,
-  bannerKit3,
+  hero2,
+  hero3,
   hamburger,
   logoWhite,
-  storyImage1,
-  aboutKeyword,
   rocket,
-  user1,
-  user2,
-  user3,
-  user4,
-  ratingImg,
   backIcon,
   nextIcon,
 };
@@ -120,46 +75,37 @@ export const brandImages = [
   { img: brandImage6 },
 ];
 
-export const features = [
-  {
-    imgUrl: traffic,
-    title: "Increase Traffic",
-    text: "We analyze your business goal, target audience, and market trends.",
-  },
-  {
-    imgUrl: ranking,
-    title: "Improve Ranking",
-    text: "We analyze your business goal, target audience, and market trends.",
-  },
-  {
-    imgUrl: earning,
-    title: "Sustainable Growth",
-    text: "We analyze your business goal, target audience, and market trends.",
-  },
-  {
-    imgUrl: target,
-    title: "Targeted Audience",
-    text: "We analyze your business goal, target audience, and market trends.",
-  },
+export const services = [
+    { title: "15-Minute Consultation", description: "Quick and convenient checkups for your pet’s health.", color: "bg-blue-600", img: serviceImage1 },
+    { title: "12-Hour Emergency Vetcare", description: "Urgent care for your pets when they need it most.", color: "bg-red-500", img: serviceImage2 },
+  { title: "Animal Health Certificate", description: "Documentation for hassle-free pet travel.", color: "bg-green-600", img: serviceImage3 },
+  { title: "Pet Dental Care", description: "Comprehensive oral health care for your pets.", color: "bg-amber-500", img: serviceImage4  },
+  { title: "General Surgery", description: "Expert surgical care to ensure your pet’s well-being.", color: "bg-purple-600", img: serviceImage5 },
+  { title: "Large Animal Services", description: "Specialized care for large animals and livestock.", color: "bg-teal-600", img: serviceImage2 },
+  { title: "Online Appointment Booking", description: "Easily schedule appointments online.", color: "bg-blue-400", img: serviceImage3 },
+  { title: "Parasite Control", description: "Protect your pets from harmful parasites.", color: "bg-yellow-500", img: serviceImage4 },
+  { title: "Pet Euthanasia", description: "Compassionate end-of-life care for your pets.", color: "bg-gray-600", img: serviceImage1 },
+  { title: "Pet Cremation", description: "Dignified aftercare services for your beloved pets.", color: "bg-indigo-500", img: serviceImage2 },
+  { title: "Weight Management Program", description: "Customized plans to keep your pets at a healthy weight.", color: "bg-pink-500", img: serviceImage3 },
+  { title: "Flea & Tick Treatment", description: "Effective solutions for flea and tick prevention.", color: "bg-lime-600" , img: serviceImage4},
+  { title: "New Kitten & Puppy Packages", description: "Comprehensive care packages for your new furry friends.", color: "bg-orange-500" , img: serviceImage5},
+  { title: "Ear Checks", description: "Thorough examinations to ensure your pet’s ear health.", color: "bg-cyan-600" , img: serviceImage1},
+  { title: "Pet Wellness Exams", description: "Regular checkups to monitor and maintain your pet’s health.", color: "bg-violet-600" , img: serviceImage2  },
+  { title: "Pet Vaccination", description: "Protect your pets with essential vaccines.", color: "bg-emerald-500", img: serviceImage3 },
+  { title: "Adult & Senior Pet Care", description: "Specialized care for pets in their adult and senior years.", color: "bg-fuchsia-500", img: serviceImage4 },
+  { title: "Pet Allergies & Dermatology", description: "Relief for skin issues and allergies.", color: "bg-rose-600", img: serviceImage5 },
+  { title: "Pet Microchipping", description: "Ensure your pets are always identifiable.", color: "bg-blue-700", img: serviceImage1 },
+  { title: "Pet In-House Diagnostic", description: "Quick and accurate diagnostics for your pets.", color: "bg-yellow-600", img: serviceImage2 },
+  { title: "Pet Boarding", description: "Safe and comfortable boarding for your pets.", color: "bg-red-600", img: serviceImage1 },
+  { title: "Pet Shop", description: "A wide range of pet supplies for all your needs.", color: "bg-teal-500", img: serviceImage2 },
+  { title: "Pet Isolation Ward", description: "Dedicated care for sick or recovering pets.", color: "bg-gray-500", img: serviceImage5 },
+  { title: "Pain Management", description: "Comprehensive solutions for managing your pet’s pain.", color: "bg-orange-600", img: serviceImage4 },
+  { title: "Urology Services", description: "Expert care for urinary tract issues.", color: "bg-green-700", img: serviceImage3 },
+  { title: "Ophthalmology", description: "Advanced eye care for your pets.", color: "bg-blue-500", img: serviceImage1  },
+  { title: "Cosmetic Surgery", description: "Ear cropping and tail docking performed with care.", color: "bg-indigo-600", img: serviceImage5   },
 ];
 
-export const aboutUs = [
-  {
-    imgTag: manage,
-    title: "First Working Process",
-    text: "We analyze your needs, setting the stage for a bespoke and impactful SEO strategy.",
-  },
-  {
-    imgTag: work,
-    title: "Dedicated Expert Team",
-    text: "Empower your success with our dedicated expert team, committed to navigating the complexities of SEO.",
-  },
-  {
-    imgTag: customer,
-    title: "24/7 Customer Support",
-    text: "Experience peace of mind with our 24/7 customer support, ensuring prompt assistance and personalized service.",
-  },
-];
+
 
 export const roadMap = [
   {

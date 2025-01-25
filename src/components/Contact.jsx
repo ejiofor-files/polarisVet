@@ -94,6 +94,14 @@ const Contact = () => {
             required
             className="block w-full bg-[#ebecfe] p-[15px] border-0 outline-0 mt-[5px] resize-none"
           />
+          <label>Email</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email address"
+            required
+            className="block w-full bg-[#ebecfe] p-[15px] border-0 outline-0 mt-[5px] resize-none"
+          />
           <label>Write your messages here</label>
           <textarea
             name="message"

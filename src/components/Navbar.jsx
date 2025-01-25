@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { assets } from "../assets";
+import { HashLink } from "react-router-hash-link";
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
   }, [showMobile]);
 
   return (
-    <div className=" fixed top-0 left-0 w-full z-50">
+    <div className=" fixed top-0 left-0 w-full z-40">
       <div
         className={`container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32  bg-white rounded-md ${
           sticky ? "bg-opacity-70 backdrop-blur-md" : ""
@@ -30,24 +31,21 @@ const Navbar = () => {
       >
         <img className="w-20" src={assets.polarisLogo} alt="logo" />
         <ul className="hidden md:flex gap-7 text-black font-semibold">
-          <a href="#Header" className="cursor-pointer hover:text-gray-400">
+          <HashLink smooth to="/#" className="cursor-pointer hover:text-gray-400">
             Home
-          </a>
-          <a href="#About" className="cursor-pointer hover:text-gray-400">
+          </HashLink>
+          <HashLink smooth to="/#About" className="cursor-pointer hover:text-gray-400">
             About
-          </a>
-          <a href="#Features" className="cursor-pointer hover:text-gray-400">
-            Features
-          </a>
-          <a
-            href="#Testimonials"
-            className="cursor-pointer hover:text-gray-400"
-          >
+          </HashLink>
+          <HashLink smooth to="/Services#" className="cursor-pointer hover:text-gray-400">
+            Services
+          </HashLink>
+          <HashLink smooth to="/#Testimonials" className="cursor-pointer hover:text-gray-400">
             Testimonials
-          </a>
+          </HashLink>
         </ul>
         <button className="hidden md:block bg-green-900 text-white px-8 font-semibold rounded-full py-2">
-          <a href="#Contact">Contact Us</a>
+          <HashLink smooth to="#Contact">Contact Us</HashLink>
         </button>
         <img
           src={assets.hamburger}
@@ -73,41 +71,41 @@ const Navbar = () => {
           />
         </div>
         <ul className="flex flex-col items-start gap-2 mt-16 px-5 text-lg font-medium">
-          <a
-            href="#Header"
-            className=" py-2 border-gray-300 border-b-2 w-full"
+          <HashLink
+            smooth to="/#"
+            className="py-2 border-gray-300 border-b-2 w-full"
             onClick={() => setShowMobile(false)}
           >
             Home
-          </a>
-          <a
-            href="#About"
+          </HashLink>
+          <HashLink
+            smooth to="/About#"
             className="border-gray-300 border-b-2 w-full py-2"
             onClick={() => setShowMobile(false)}
           >
             About
-          </a>
-          <a
-            href="#Features"
+          </HashLink>
+          <HashLink
+            smooth to="/Services#"
             className="border-gray-300 border-b-2 w-full py-2"
             onClick={() => setShowMobile(false)}
           >
-            Features
-          </a>
-          <a
-            href="#Testimonials"
+            Services
+          </HashLink>
+          <HashLink
+            smooth to="/#Testimonials"
             className="border-gray-300 border-b-2 w-full py-2"
             onClick={() => setShowMobile(false)}
           >
             Testimonials
-          </a>
-          <a
-            href="#Contact"
+          </HashLink>
+          <HashLink
+            smooth to="/#Contact"
             className="border-gray-300 border-b-2 w-full py-2"
             onClick={() => setShowMobile(false)}
           >
             Contact
-          </a>
+          </HashLink>
         </ul>
       </div>
     </div>

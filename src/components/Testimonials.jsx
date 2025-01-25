@@ -7,7 +7,7 @@ const Testimonials = () => {
 
   return (
 
-<div className="overflow-hidden bg-green-900">
+<div id="Testimonials" className="overflow-hidden bg-green-900">
       <div className="relative max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         {/* Heading */}
         <div className="max-w-2xl w-3/4 lg:w-1/2 mb-6 sm:mb-10 md:mb-16">

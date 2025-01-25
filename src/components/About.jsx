@@ -142,33 +142,15 @@ const About = () => {
           <div className="lg:col-span-6">
             <div className="relative">
               <div>
-                {activeTab === 1 && (
+                
                   <div>
                     <img
                       className="shadow-xl shadow-gray-200 rounded-xl"
-                      src={assets.aboutImage1}
+                      src={activeTab===1?assets.aboutImage1:activeTab===2?assets.aboutImage2:assets.aboutImage3}
                       alt="Features Image"
                     />
                   </div>
-                )}
-                {activeTab === 2 && (
-                  <div>
-                    <img
-                      className="shadow-xl shadow-gray-200 rounded-xl"
-                      src={assets.aboutImage2}
-                      alt="Features Image"
-                    />
-                  </div>
-                )}
-                {activeTab === 3 && (
-                  <div>
-                    <img
-                      className="shadow-xl shadow-gray-200 rounded-xl"
-                      src={assets.aboutImage3}
-                      alt="Features Image"
-                    />
-                  </div>
-                )}
+               
               </div>
 
               <div className="hidden absolute top-0 end-0 translate-x-20 md:block lg:translate-x-20">

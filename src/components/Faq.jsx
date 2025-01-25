@@ -1,6 +1,7 @@
 import React from "react";
 import Accordion from "./Accordion";
 import { motion } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 
 const Faq = () => {
   return (
@@ -69,12 +70,13 @@ const Faq = () => {
               <>
                 Yes, we provide care for a variety of pets, including cats,
                 dogs, and some exotic animals. Please{" "}
-                <a
+                <HashLink
                   className="cursor-pointer font-bold text-green-700"
-                  href="#Services"
+                  smooth
+                  to="/#Services"
                 >
                   contact us
-                </a> {" "}
+                </HashLink>{" "}
                  to discuss your specific needs.
               </>
             }

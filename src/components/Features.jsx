@@ -1,23 +1,26 @@
 import React from "react";
 import { assets } from "../assets";
 import { motion } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 
 const Features = () => {
   return (
-
     <div
       className="w-full max-w-[85rem] mx-auto overflow-hidden py-10 px-6 lg:px-8 bg-green-100"
       id="Features"
     >
       <div className="flex flex-col md:flex-row items-center w-full justify-between gap-8 md:items-start md:gap-20">
         <div className="w-full">
-          <h5 className="text-lg font-semibold text-green-600">Our Core Features</h5>
+          <h5 className="text-lg font-semibold text-green-600">
+            Our Core Services
+          </h5>
           <h2 className="text-2xl font-semibold sm:text-4xl">
             What Makes PolarisVet Unique?
           </h2>
         </div>
         <p className="max-w-lg sm:my-10 text-gray-600">
-          We are dedicated to providing comprehensive care with compassion and expertise for every pet. Here's a glimpse of what we offer.
+          We are dedicated to providing comprehensive care with compassion and
+          expertise for every pet. Here's a glimpse of what we offer.
         </p>
       </div>
 
@@ -62,7 +65,8 @@ const Features = () => {
                   Compassionate Care for Every Pet
                 </h2>
                 <p className="text-gray-500">
-                  At PolarisVet, we provide a wide range of services designed to ensure the health and happiness of your pets.
+                  At PolarisVet, we provide a wide range of services designed to
+                  ensure the health and happiness of your pets.
                 </p>
               </div>
 
@@ -82,7 +86,10 @@ const Features = () => {
                   </span>
                   <div>
                     <span className="text-base text-gray-500">
-                      <span className="font-bold">Comprehensive Wellness Exams</span> for early disease detection and prevention.
+                      <span className="font-bold">
+                        Comprehensive Wellness Exams
+                      </span>{" "}
+                      for early disease detection and prevention.
                     </span>
                   </div>
                 </li>
@@ -102,7 +109,10 @@ const Features = () => {
                   </span>
                   <div>
                     <span className="text-base text-gray-500">
-                      <span className="font-bold">Emergency Veterinary Care</span> available 12 hours a day.
+                      <span className="font-bold">
+                        Emergency Veterinary Care
+                      </span>{" "}
+                      available 12 hours a day.
                     </span>
                   </div>
                 </li>
@@ -122,19 +132,21 @@ const Features = () => {
                   </span>
                   <div>
                     <span className="text-base text-gray-500">
-                      <span className="font-bold">Dental Care</span> for maintaining your pet’s oral health.
+                      <span className="font-bold">Dental Care</span> for
+                      maintaining your pet’s oral health.
                     </span>
                   </div>
                 </li>
               </ul>
 
               <div className="mt-8">
-                <a
-                  href="/services"
+                <HashLink
+                  smooth
+                  to="/Services#"
                   className="inline-block px-6 py-3 text-lg font-medium text-white bg-green-600 rounded-lg hover:bg-green-700"
                 >
                   View All Services
-                </a>
+                </HashLink>
               </div>
             </div>
           </div>
@@ -143,7 +155,5 @@ const Features = () => {
     </div>
   );
 };
-
-
 
 export default Features;
