@@ -6,6 +6,8 @@ import RoadMap from "../components/RoadMap";
 import Testimonials from "../components/Testimonials";
 import Faq from "../components/Faq";
 import Contact from "../components/Contact";
+import { ToastContainer } from 'react-toastify';
+
 
 const Home = () => {
   return (
@@ -17,6 +19,17 @@ const Home = () => {
       <Testimonials />
       <Faq />
       <Contact />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   )
 }

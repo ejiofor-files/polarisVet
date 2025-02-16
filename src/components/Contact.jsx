@@ -1,29 +1,31 @@
 import React from "react";
 import { assets } from "../assets";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const Contact = () => {
-  const [result, setResult] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
+    setIsLoading(true);
+    toast.info("Sending your appointment request...");
 
-    formData.append("access_key", "70571834-6a2c-43c4-9401-3e3c5cf64e71");
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        event.target,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("Form Submitted Successfully");
+      toast.success("Form submitted successfully!");
       event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+    } catch (error) {
+      console.error("Error", error);
+      toast.error("Failed to submit form. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -56,7 +58,7 @@ const Contact = () => {
               alt="mail"
               className="w-[25px] mr-[10px]"
             />
-            Contact@ofosh
+            polarisvet@gmail.com
           </li>
           <li className="flex items-center my-[20px]">
             <img
@@ -110,16 +112,23 @@ const Contact = () => {
             required
             className="block w-[100%] bg-[#ebecfe] p-[15px] border-0 outline-0 mt-[5px] resize-none"
           />
-          <button className="bg-[#000f38] flex items-center text-white rounded-xl mt-[20px] font-semibold text-1xl p-[20px]">
-            Submit Now{" "}
-            <img
-              src={assets.whiteArrow}
-              alt=""
-              className="w-[35px] ml-[10px]"
-            />
+
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="bg-[#000f38] flex items-center justify-center text-white rounded-xl mt-6 font-semibold text-lg p-4 w-full"
+          >
+            {isLoading ? "Sending..." : "Submit"}
+            {!isLoading && (
+              <img
+                src={assets.whiteArrow}
+                alt=""
+                className="w-[35px] ml-[10px]"
+              />
+            )}
           </button>
         </form>
-        <span className="my-[20px]">{result}</span>
+
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ const Navbar = () => {
           </HashLink>
         </ul>
         <button className="hidden md:block bg-green-900 text-white px-8 font-semibold rounded-full py-2">
-          <HashLink smooth to="#Contact">Contact Us</HashLink>
+          <HashLink smooth to="/#Contact">Contact Us</HashLink>
         </button>
         <img
           src={assets.hamburger}
@@ -62,7 +62,7 @@ const Navbar = () => {
         } md:hidden fixed w-full right-0 top-0 bottom-0 overflow-hidden mt-4 px-4 bg-white transition-all `}
       >
         <div className="flex justify-between items-center">
-          <img src={assets.logoBlack} alt="logo" />
+          <img src={assets.polarisLogo} alt="logo" />
           <img
             src={assets.close}
             alt="menu"

@@ -1,34 +1,37 @@
 import React from "react";
 import { assets } from "../assets";
 import { services } from "../assets";
-import { createPortal } from 'react-dom';
+import { createPortal } from "react-dom";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
 
 const Service = () => {
   const [modalIndex, setModalIndex] = React.useState(null);
-  console.log(document.getElementById('modal-root'));
+  console.log(document.getElementById("modal-root"));
 
-  const [result, setResult] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
+    setIsLoading(true);
+    toast.info("Sending your appointment request...");
 
-    formData.append("access_key", "70571834-6a2c-43c4-9401-3e3c5cf64e71");
+    try {
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        event.target,
+        import.meta.env.VITE_EMAILJS_USER_ID
+      );
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("Form Submitted Successfully");
+      toast.success("Appointment booked successfully!");
+      setModalIndex(null);
       event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+    } catch (error) {
+      console.error("Error", error);
+      toast.error("Failed to send appointment. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,12 +54,19 @@ const Service = () => {
               Our Services.
             </h1>
             <p className="mt-8 text-xl text-black">
-              We provide a variety of Professional vetinanary services to your pets.
+              We provide a variety of Professional vetinanary services to your
+              pets.
             </p>
 
-
             <p className="mt-5 text-base text-black">
-              Book an <button onClick={() => setModalIndex(0)} className="text-green-700 font-bold">Appointment</button> now!
+              Book an{" "}
+              <button
+                onClick={() => setModalIndex(0)}
+                className="text-green-700 font-bold"
+              >
+                Appointment
+              </button>{" "}
+              now!
             </p>
           </div>
         </div>
@@ -120,91 +130,147 @@ const Service = () => {
               <p className="mt-5 text-gray-600 text-xs">
                 <div className="bg-white h-[50px] flex items-start justify-start">
                   <>
-                  <button onClick={() => setModalIndex(index)} className="relative inline-flex items-center px-12 py-3 overflow-hidden font-medium text-green-900 border-2 border-green-900 rounded-full hover:text-white group hover:bg-gray-50">
-                    <span className="absolute left-0 block w-full h-0 transition-all bg-green-900 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
-                    <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M14 5l7 7m0 0l-7 7m7-7H3"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="relative">Book Appointment</span>
-                  </button>
-                  {index === modalIndex && createPortal(
-                      <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                        <div className="bg-white p-6 rounded-lg w-full max-w-md">
-                          <div className="w-full flex justify-end"><button
-                            className="mt-4 text-red-500 hover:underline"
-                            onClick={() => setModalIndex(null)}
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="none"/><path fill="currentColor" d="M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2m0 26C9.4 28 4 22.6 4 16S9.4 4 16 4s12 5.4 12 12s-5.4 12-12 12"/><path fill="currentColor" d="M21.4 23L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z"/></svg>
-                          </button></div>
-                          <h2 className="text-2xl mb-4">Book an Appointment</h2>
-                          <form onSubmit={onSubmit}>
-                            <label className="block mb-2">Your Name</label>
-                            <input
-                              type="text"
-                              name="name"
-                              placeholder="Enter your name"
-                              required
-                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
-                            />
-                            
-                            <label className="block mb-2 mt-4">Phone Number</label>
-                            <input
-                              type="tel"
-                              name="phone"
-                              placeholder="Enter your phone number"
-                              required
-                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
-                            />
-                            
-                            <label className="block mb-2 mt-4">Email</label>
-                            <input
-                              type="email"
-                              name="email"
-                              placeholder="Enter your email address"
-                              required
-                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
-                            />
-                            
-                            <label className="block mb-2 mt-4">Appointment Date</label>
-                            <input
-                              type="date"
-                              name="date"
-                              required
-                              className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
-                            />
-                            
-                            <button
-                              type="submit"
-                              className="bg-[#000f38] flex items-center justify-center text-white rounded-xl mt-6 font-semibold text-lg p-4 w-full"
-                            >
-                              Submit
-                            </button>
-                          </form>
-                          
-                        </div>
-                      </div>,
-                      document.getElementById('modal-root')
-                    )}
-                    </>
+                    <button
+                      onClick={() => setModalIndex(index)}
+                      className="relative inline-flex items-center px-12 py-3 overflow-hidden font-medium text-green-900 border-2 border-green-900 rounded-full hover:text-white group hover:bg-gray-50"
+                    >
+                      <span className="absolute left-0 block w-full h-0 transition-all bg-green-900 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+                      <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span className="relative">Book Appointment</span>
+                    </button>
+                    {index === modalIndex &&
+                      createPortal(
+                        <div className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                          <div className="bg-white p-6 rounded-lg w-full max-w-md max-h-[calc(100vh-20px)] overflow-auto">
+                            <div className="w-full flex justify-end">
+                              <button
+                                className="mt-4 text-red-500 hover:underline"
+                                onClick={() => setModalIndex(null)}
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="32"
+                                  height="32"
+                                  viewBox="0 0 32 32"
+                                >
+                                  <rect width="32" height="32" fill="none" />
+                                  <path
+                                    fill="currentColor"
+                                    d="M16 2C8.2 2 2 8.2 2 16s6.2 14 14 14s14-6.2 14-14S23.8 2 16 2m0 26C9.4 28 4 22.6 4 16S9.4 4 16 4s12 5.4 12 12s-5.4 12-12 12"
+                                  />
+                                  <path
+                                    fill="currentColor"
+                                    d="M21.4 23L16 17.6L10.6 23L9 21.4l5.4-5.4L9 10.6L10.6 9l5.4 5.4L21.4 9l1.6 1.6l-5.4 5.4l5.4 5.4z"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                            <h2 className="text-2xl mb-4">
+                              Book an Appointment
+                            </h2>
+                            <form onSubmit={onSubmit}>
+                              <label className="block mb-2">Your Name</label>
+                              <input
+                                type="text"
+                                name="name"
+                                placeholder="Enter your name"
+                                required
+                                className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                              />
+
+                              <label className="block mb-2 mt-4">
+                                Phone Number
+                              </label>
+                              <input
+                                type="tel"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                required
+                                className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                              />
+
+                              <label className="block mb-2 mt-4">Email</label>
+                              <input
+                                type="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                required
+                                className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                              />
+
+                              <label className="block mb-2 mt-4">
+                                Write your messages here
+                              </label>
+                              <textarea
+                                name="message"
+                                rows="2"
+                                placeholder="Enter your Message"
+                                required
+                                className="block w-[100%] bg-[#ebecfe] p-[15px] border-0 outline-0 mt-[5px] resize-none"
+                              />
+
+                              <label className="block mb-2 mt-4">
+                                Appointment Date
+                              </label>
+                              <input
+                                type="date"
+                                name="date"
+                                required
+                                className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
+                              />
+
+                              <button
+                                type="submit"
+                                disabled={isLoading}
+                                className="bg-[#000f38] flex items-center justify-center text-white rounded-xl mt-6 font-semibold text-lg p-4 w-full"
+                              >
+                                {isLoading ? "Sending..." : "Submit"}
+                                {!isLoading && (
+                                  <img
+                                    src={assets.whiteArrow}
+                                    alt=""
+                                    className="w-[35px] ml-[10px]"
+                                  />
+                                )}
+                              </button>
+                            </form>
+                          </div>
+                        </div>,
+                        document.getElementById("modal-root")
+                      )}
+                  </>
                 </div>
               </p>
             </div>
           </div>
         ))}
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </section>
   );
 };
