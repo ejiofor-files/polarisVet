@@ -8,6 +8,12 @@ import { ToastContainer, toast } from "react-toastify";
 const Service = () => {
   const [modalIndex, setModalIndex] = React.useState(null);
   console.log(document.getElementById("modal-root"));
+  const [minDate, setMinDate] = React.useState("");
+
+  React.useEffect(() => {
+    const today = new Date().toISOString().split("T")[0]; // Get today's date in YYYY-MM-DD format
+    setMinDate(today);
+  }, []);
 
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -230,6 +236,7 @@ const Service = () => {
                               <input
                                 type="date"
                                 name="date"
+                                min={minDate}
                                 required
                                 className="block w-full bg-[#ebecfe] p-3 border-0 outline-0 mt-1 resize-none rounded"
                               />
