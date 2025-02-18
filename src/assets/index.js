@@ -137,7 +137,7 @@ export const testimonialData = [
     role: "Rosemary | Loyal Visitor",
   },
   {
-    text: "A trusted veterinarian to my family personally for 8 years.Polaris has been there every step of the way caring for my pets from pups to their senior years. It can be emotional watching your pet age and go through a lot of life changes and Polaris has comforted all of my concerns. The staff is welcoming, helpful, and personable as well",
+    text: "A trusted veterinarian to my family personally for 10 years.Polaris has been there every step of the way caring for my pets from pups to their senior years. It can be emotional watching your pet age and go through a lot of life changes and Polaris has comforted all of my concerns. The staff is welcoming, helpful, and personable as well",
     name: " ",
     role: "Mr Ndubuisi | Frequent Client",
   },
