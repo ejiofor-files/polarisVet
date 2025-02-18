@@ -127,18 +127,18 @@ export const roadMap = [
 
 export const testimonialData = [
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae ligula tincidunt, venenatis augue sed, volutpat est.",
+    text: "The staff here is so kind, caring, and simply incredible! The excitement they have when they see my dog, Tripp (and how excited he even gets when he sees all of them) is what I love most! Makes me as a dog owner know my pup is in the right hands for care. And the new facility is a bonus... absolutely beautiful!",
     name: " ",
-    role: "Pet Owner | Happy Client",
+    role: "Henry Ejiofor | Happy Client",
   },
   {
-    text: "Quisque efficitur dolor vel ipsum aliquet, at feugiat urna accumsan. Mauris vehicula ante non nulla consectetur lacinia.",
+    text: "I love this place. My Rhea has been through 2 crises in 4 years. Both times the staff at Bethany has been simply amazing. When your dogs get excited to go see the vet/techs, you know they are doing something right. I know that my Rhea is alive and healthy because of this place.",
     name: " ",
-    role: "Pet Parent | Loyal Visitor",
+    role: "Rosemary | Loyal Visitor",
   },
   {
-    text: "Ut volutpat ligula ac elit vestibulum, sed bibendum erat commodo. Aenean consequat velit et ipsum molestie aliquam.",
+    text: "A trusted veterinarian to my family personally for 8 years.Polaris has been there every step of the way caring for my pets from pups to their senior years. It can be emotional watching your pet age and go through a lot of life changes and Polaris has comforted all of my concerns. The staff is welcoming, helpful, and personable as well",
     name: " ",
-    role: "Pet Owner | Frequent Client",
+    role: "Mr Ndubuisi | Frequent Client",
   },
 ];
